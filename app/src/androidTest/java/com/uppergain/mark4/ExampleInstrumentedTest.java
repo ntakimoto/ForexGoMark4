@@ -1,21 +1,53 @@
 package com.uppergain.mark4;
 
-import android.content.Context;
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import android.os.Bundle;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.io.File;
 
-import static org.junit.Assert.*;
+import cucumber.api.CucumberOptions;
+import cucumber.api.android.CucumberAndroidJUnitRunner;
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
-@RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+//@RunWith(Cucumber.class)
+//@CucumberOptions(glue = "com.uppergain.mark4", plugin  = { "pretty","html:test-output"},features = "features")
+//@RunWith(AndroidJUnit4.class)
+@CucumberOptions(
+        features = "features",
+        glue = "com.uppergain.mark4",
+        tags = "")
+public class ExampleInstrumentedTest extends CucumberAndroidJUnitRunner {
+
+    @Override
+    public void onCreate(final Bundle bundle) {
+        bundle.putString("plugin", getPluginConfigurationString());
+        // we programmatically create the plugin configuration
+        super.onCreate(bundle);
+    }
+
+    /**
+     * Since we want to checkout the external storage directory programmatically, we create the plugin configuration
+     * here, instead of the {@link CucumberOptions} annotation.
+     *
+     * @return the plugin string for the configuration, which contains XML, HTML and JSON paths
+     */
+    private String getPluginConfigurationString() {
+        String cucumber = "cucumber";
+        String separator = "--";
+        return "junit:" + getAbsoluteFilesPath() + "/" + cucumber + ".xml" + separator +
+                "html:" + getAbsoluteFilesPath() + "/" + cucumber + ".html";
+    }
+
+    /**
+     * The path which is used for the report files.
+     *
+     * @return the absolute path for the report files
+     */
+    private String getAbsoluteFilesPath() {
+
+        //sdcard/Android/data/cucumber.cukeulator
+        File directory = getTargetContext().getExternalFilesDir(null);
+        return new File(directory,"reports").getAbsolutePath();
+    }
+    /**
     @Test
     public void useAppContext() {
         // Context of the app under test.
@@ -23,4 +55,14 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.uppergain.mark4", appContext.getPackageName());
     }
+
+    @Test
+    public void useAppContext2() {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+        assertEquals("com.uppergain.mark4", appContext.getPackageName());
+    }
+    */
+
 }
