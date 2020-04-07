@@ -8,5 +8,5 @@ package com.uppergain.mark4.framework.io;
  * @version 0.0.1
  * @since 2020-02-22
  */
-public class FireBaseDataIO {
+public class FireBaseData {
 }

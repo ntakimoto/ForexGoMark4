@@ -1,5 +1,9 @@
 package com.uppergain.mark4.framework.io;
 
+import android.content.Context;
+
+import com.uppergain.mark4.ForexGoApp;
+
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -20,12 +24,15 @@ import java.io.UnsupportedEncodingException;
  */
 public class YamlFileData implements DataFileIO {
 
-    //TODO キャッシュディレクトリを指定する
-    private String path = "";
+    private String path = null;
+    Context context = ForexGoApp.getInstance().getApplicationContext();
 
-    public YamlFileData() {}
+    public YamlFileData() {
+        this.path = this.context.getCacheDir().toString() + "/";
+    }
 
     public YamlFileData(String fileName) {
+        this.path = this.context.getCacheDir().toString() + "/" + fileName + ".yaml";
     }
 
     @Override
@@ -85,6 +92,7 @@ public class YamlFileData implements DataFileIO {
 
     /**
      * 指定ていあるフォルダパスを返す
+     *
      * @return
      */
     public String getFilePath() {
@@ -93,6 +101,7 @@ public class YamlFileData implements DataFileIO {
 
     /**
      * フォルダパスを指定する
+     *
      * @param filePath
      */
     public void setFilePath(String filePath) {
