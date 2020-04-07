@@ -1,4 +1,4 @@
-package com.uppergain.mark4.Facade;
+package com.uppergain.mark4.framework.facade;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

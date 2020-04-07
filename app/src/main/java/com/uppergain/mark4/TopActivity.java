@@ -7,9 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.uppergain.mark4.Facade.GemeStartFacade;
-import com.uppergain.mark4.io.DataIO;
-import com.uppergain.mark4.io.PrefDataIO;
+import com.uppergain.mark4.framework.facade.GemeStartFacade;
+import com.uppergain.mark4.framework.io.DataIO;
+import com.uppergain.mark4.framework.io.PrefDataIO;
 
 public class TopActivity extends AppCompatActivity {
     private static final String TAG = "TopActivity";

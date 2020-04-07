@@ -1,4 +1,4 @@
-package com.uppergain.mark4.io;
+package com.uppergain.mark4.framework.io;
 
 /**
  * 共通機能<br>
