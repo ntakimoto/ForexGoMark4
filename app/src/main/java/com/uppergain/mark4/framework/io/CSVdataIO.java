@@ -38,7 +38,7 @@ public class CSVdataIO implements DataIO {
             fi = new FileInputStream(path);
             is = new InputStreamReader(fi);
             br = new BufferedReader(is);
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -61,7 +61,7 @@ public class CSVdataIO implements DataIO {
      */
     @Override
     public ArrayList<String> getAllElement(String path) {
-        Log.d(TAG, "getAllElement: "+path);
+        Log.d(TAG, "getAllElement: " + path);
         ArrayList<String> list = new ArrayList<>();
         try {
             //列名を管理する為の配列
