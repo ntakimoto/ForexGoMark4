@@ -2,13 +2,13 @@ package com.uppergain.mark4.framework.State;
 
 import android.util.Log;
 
-import com.uppergain.gof.Exception.ForexGoIOWriterException;
+import com.uppergain.mark4.Exception.ForexGoIOWriterException;
 
 /**
  * 未納状態の会員クラス<br>
  * 基底GoF:Stateパターン
  *
- * @author Natsumi Takimoto
+ * @author ntakimoto
  * @version 0.0.1
  * @since 2020-02-14
  */

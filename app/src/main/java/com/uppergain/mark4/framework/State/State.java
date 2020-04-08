@@ -5,7 +5,7 @@ import com.uppergain.mark4.Exception.ForexGoIOWriterException;
 /**
  * 各会員の状態に対するインターフェイス<br>
  * 基底GoF:Stateパターン
- * @author Natsumi Takimoto
+ * @author ntakimoto
  * @since 2020-02-14
  * @version 0.0.1
  */

@@ -4,7 +4,7 @@ package com.uppergain.mark4.framework.State;
  * 各会員状態に関する処理クラス<br>
  * 基底GoF:Stateパターン
  *
- * @author Natsumi Takimoto
+ * @author ntakimoto
  * @version 0.0.1
  * @since 2020-02-14
  */

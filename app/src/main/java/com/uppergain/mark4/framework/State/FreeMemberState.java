@@ -6,7 +6,7 @@ import android.util.Log;
  * 無料会員または休会会員クラス<br>
  * 基底GoF:Stateパターン
  *
- * @author Natsumi Takimoto
+ * @author ntakimoto
  * @version 0.0.1
  * @since 2020-02-14
  */

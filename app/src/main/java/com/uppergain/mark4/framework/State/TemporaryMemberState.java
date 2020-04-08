@@ -12,7 +12,7 @@ import java.util.UUID;
  * 仮会員または退会会員クラス<br>
  * 基底GoF:Stateパターン
  *
- * @author Natsumi Takimoto
+ * @author ntakimoto
  * @version 0.0.3
  * @since 2020-02-14
  */

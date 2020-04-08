@@ -1,12 +1,12 @@
 package com.uppergain.mark4.framework.State;
 
-import com.uppergain.gof.Exception.ForexGoIOWriterException;
+import com.uppergain.mark4.Exception.ForexGoIOWriterException;
 
 /**
  * <br>
  * 基底GoF:Stateパターン + Adapterパターン
  *
- * @author Natsumi Takimoto
+ * @author ntakimoto
  * @version 0.0.1
  * @since 2020-02-20
  */
