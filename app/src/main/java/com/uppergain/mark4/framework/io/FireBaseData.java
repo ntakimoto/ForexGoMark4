@@ -10,14 +10,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Date;
-
 /**
  * 共通機能<br>
  * 基底GoF:Strategyパターン
  *
  * @author ntakimoto
- * @version 0.0.1
+ * @version 0.0.2
  * @since 2020-02-22
  */
 public class FireBaseData implements DataFileIO {
@@ -26,20 +24,16 @@ public class FireBaseData implements DataFileIO {
     private final FirebaseDatabase database;
     DatabaseReference myRef;
 
-    public FireBaseData() {
-        // Write a message to the database
+    public FireBaseData(String path) {
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("UUID").child(String.valueOf(new Date()));;
+        myRef = database.getReference(path);
     }
 
     @Override
     public Object reder(String target) {
-        // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
             }
@@ -55,7 +49,6 @@ public class FireBaseData implements DataFileIO {
     @Override
     public void writer(String target, Object data) {
         myRef.child(target).setValue(data);
-        //myRef.setValue(data);
     }
 
     @Override

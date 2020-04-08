@@ -21,7 +21,7 @@ public class UserItemCrl {
 
     public UserItemCrl() {
         yData = new YamlFileData();
-        fData = new FireBaseData();
+        fData = new FireBaseData("ShopItems");
     }
 
     /**
@@ -65,8 +65,8 @@ public class UserItemCrl {
      *
      * @param askItem
      */
-    public void upLodeItem(ItemDetails askItem) {
-        fData.writer("UUID",askItem);
+    public void upLodeItem(Object askItem) {
+        fData.writer("ItemID", askItem);
     }
 
     /**
@@ -147,7 +147,12 @@ public class UserItemCrl {
      * @return
      */
     public boolean isConFireBase() {
-        return false;
+        String key = this.getKey();
+        if (key.equals(null)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -162,17 +167,8 @@ public class UserItemCrl {
     }
 
     /**
-     * FireBaseにあるアイテムのIDを取得する
-     *
-     * @return
-     */
-    public String getItemID() {
-
-        return null;
-    }
-
-    /**
      * FireBaseにある指定するアイテムが購入可能か確認する
+     *
      * @return
      */
     public boolean isItemLocked(String itemName) {
@@ -180,7 +176,7 @@ public class UserItemCrl {
         if (yamlList.containsKey(itemName)) {
             // 指定するアイテムの購入可否
             return yamlList.get(itemName).isLocked();
-        }else{
+        } else {
             //メッセージ表示[売り切れ：アイテムは存在しない]
         }
         return false;
@@ -188,9 +184,28 @@ public class UserItemCrl {
 
     /**
      * FireBaseのキーを取得する
+     *
      * @return
      */
-    public String getKey(){
+    public String getKey() {
         return fData.getKey();
+    }
+
+    /**
+     * FireBaseにあるアイテムオブジェクトを取得する
+     * @return
+     */
+    public ItemDetails getItems() {
+        return null;
+    }
+
+    public String getItemID(String itemName) {
+        Map<String, ItemDetails> yamlList = (Map<String, ItemDetails>) getItemMapList();
+        if (yamlList.containsKey(itemName)) {
+            // 指定するアイテムのID取得
+            return yamlList.get(itemName).getItemID();
+        } else {
+            return null;
+        }
     }
 }
