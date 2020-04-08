@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.uppergain.mark4.framework.State.UserState;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
 import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.PrefDataIO;
@@ -39,14 +40,14 @@ public class TopActivity extends AppCompatActivity {
         String prefData = io.reader("USER_STATUS");
         //ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
-            //new UserState("0");
+            new UserState("0");
             Log.d(TAG, "[NEW GAME］ボタンを表示すること[ド新規]");
             gameStart.setVisibility(View.INVISIBLE);
         } else if (prefData.equals("0")) {//会員テータスが0である場合
             Log.d(TAG, "[NEW GAME］ボタンを表示すること[既存]");
             gameStart.setVisibility(View.INVISIBLE);
         } else {//それ以外の場合
-            //new UserState(prefData);
+            new UserState(prefData);
             Log.d(TAG, "[GAME START]ボタンを表示すること");
             newGame.setVisibility(View.INVISIBLE);
             //【 2_2_2 】通信チェック
