@@ -93,7 +93,7 @@ public class CSVdataIO implements DataIO {
     }
 
     @Override
-    public void elete(String key) {
+    public void delete(String key) {
 
     }
 

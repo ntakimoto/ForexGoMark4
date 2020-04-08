@@ -2,14 +2,16 @@ package com.uppergain.mark4;
 
 import android.os.Bundle;
 
-import java.io.File;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
+import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.android.CucumberAndroidJUnitRunner;
 
 //@RunWith(Cucumber.class)
 //@CucumberOptions(glue = "com.uppergain.mark4", plugin  = { "pretty","html:test-output"},features = "features")
-//@RunWith(AndroidJUnit4.class)
+@RunWith(AndroidJUnit4.class)
 @CucumberOptions(
         features = "features",
         glue = "com.uppergain.mark4",
@@ -44,8 +46,9 @@ public class ExampleInstrumentedTest extends CucumberAndroidJUnitRunner {
     private String getAbsoluteFilesPath() {
 
         //sdcard/Android/data/cucumber.cukeulator
-        File directory = getTargetContext().getExternalFilesDir(null);
-        return new File(directory,"reports").getAbsolutePath();
+        //File directory = getTargetContext().getExternalFilesDir(null);
+        //return new File(directory,"reports").getAbsolutePath();
+        return null;
     }
     /**
     @Test

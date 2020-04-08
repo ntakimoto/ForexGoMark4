@@ -20,7 +20,7 @@ public interface DataIO {
     ArrayList<String> getAllElement(String key);
     void writer(Map<String, String> saveData);
     void update(String key, String element);
-    void elete(String key);
+    void delete(String key);
     void execute();
 
 }
