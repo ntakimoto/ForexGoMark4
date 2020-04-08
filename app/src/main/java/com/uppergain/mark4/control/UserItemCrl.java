@@ -1,7 +1,7 @@
 package com.uppergain.mark4.control;
 
 import com.uppergain.mark4.Entity.ItemDetails;
-import com.uppergain.mark4.framework.io.DataFileIO;
+import com.uppergain.mark4.framework.io.FireBaseData;
 import com.uppergain.mark4.framework.io.YamlFileData;
 
 import java.util.Map;
@@ -16,11 +16,12 @@ import java.util.Map;
  */
 public class UserItemCrl {
 
-    private DataFileIO yData;
-    private DataFileIO fData;
+    private YamlFileData yData;
+    private FireBaseData fData;
 
     public UserItemCrl() {
         yData = new YamlFileData();
+        fData = new FireBaseData();
     }
 
     /**
@@ -51,7 +52,7 @@ public class UserItemCrl {
      * 選択したアイテムをショップに出品する
      */
     public void askItem(String itemName) {
-        ItemDetails askItem = null;
+        ItemDetails askItem;
         Map<String, ItemDetails> yamlList = (Map<String, ItemDetails>) getItemMapList();
         if (yamlList.containsKey(itemName)) {
             askItem = yamlList.get(itemName);
@@ -65,6 +66,7 @@ public class UserItemCrl {
      * @param askItem
      */
     public void upLodeItem(ItemDetails askItem) {
+        fData.writer("UUID",askItem);
     }
 
     /**
@@ -165,6 +167,30 @@ public class UserItemCrl {
      * @return
      */
     public String getItemID() {
+
         return null;
+    }
+
+    /**
+     * FireBaseにある指定するアイテムが購入可能か確認する
+     * @return
+     */
+    public boolean isItemLocked(String itemName) {
+        Map<String, ItemDetails> yamlList = (Map<String, ItemDetails>) getItemMapList();
+        if (yamlList.containsKey(itemName)) {
+            // 指定するアイテムの購入可否
+            return yamlList.get(itemName).isLocked();
+        }else{
+            //メッセージ表示[売り切れ：アイテムは存在しない]
+        }
+        return false;
+    }
+
+    /**
+     * FireBaseのキーを取得する
+     * @return
+     */
+    public String getKey(){
+        return fData.getKey();
     }
 }

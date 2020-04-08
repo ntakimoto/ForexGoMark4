@@ -38,7 +38,6 @@ public class YamlFileData implements DataFileIO {
     @Override
     public Object reder(String target) {
         String encoding = "UTF-8";
-
         File file = new File(path + target + ".yaml");
         FileInputStream input;
         InputStreamReader stream = null;
@@ -65,11 +64,10 @@ public class YamlFileData implements DataFileIO {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Object update(String key, Object newData) {
         File file = new File(path + key + ".yaml");
-        // フォルダの存在を確認する
+        // ファイルの存在を確認する
         if (file.exists()) {
             file.delete();
             this.writer(key, newData);
@@ -91,7 +89,7 @@ public class YamlFileData implements DataFileIO {
     }
 
     /**
-     * 指定ていあるフォルダパスを返す
+     * 指定してあるフォルダパスを返す
      *
      * @return
      */

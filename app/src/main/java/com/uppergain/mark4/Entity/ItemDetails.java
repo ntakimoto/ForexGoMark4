@@ -1,7 +1,9 @@
 package com.uppergain.mark4.Entity;
 
 public class ItemDetails {
-	
+
+	//購入可否フラグ
+	private boolean locked = false;
 	//ID
 	private String itemID;
 	//アイテムレベル
@@ -20,6 +22,30 @@ public class ItemDetails {
 	private String explanation;
 	
 	public ItemDetails() {
+	}
+
+	public boolean isLocked() {
+		return locked;
+	}
+
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+
+	public String getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(String itemID) {
+		this.itemID = itemID;
+	}
+
+	public String getItemLevel() {
+		return itemLevel;
+	}
+
+	public void setItemLevel(String itemLevel) {
+		this.itemLevel = itemLevel;
 	}
 
 	public int getType() {
