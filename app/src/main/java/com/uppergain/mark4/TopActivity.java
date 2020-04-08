@@ -11,6 +11,14 @@ import com.uppergain.mark4.framework.facade.GemeStartFacade;
 import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.PrefDataIO;
 
+/**
+ * スプラッシュ画面およびTOP画面Activity<br>
+ * 基底GoF:-
+ *
+ * @author ntakimoto
+ * @version 0.0.1
+ * @since 2020-04-08
+ */
 public class TopActivity extends AppCompatActivity {
     private static final String TAG = "TopActivity";
 
