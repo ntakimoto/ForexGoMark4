@@ -2,7 +2,7 @@ package com.uppergain.mark4.framework.State;
 
 import android.util.Log;
 
-import com.uppergain.mark4.Exception.ForexGoIOWriterException;
+import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
 
 /**
  * 未納状態の会員クラス<br>

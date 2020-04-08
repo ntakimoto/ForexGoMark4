@@ -2,14 +2,12 @@ package com.uppergain.mark4.framework.Decorator;
 
 import android.util.Log;
 
-import com.uppergain.gof.Singleton.Singleton;
-
 public class CalLog {
     private static final String TAG = "CalLog";
 
     public void run() {
         //エントリー枚数を設定
-        Singleton.getInstance().setLot("1.15");
+        //Singleton.getInstance().setLot("1.15");
 
         //1ポジションの損益金額を表示する
         Calculation calculation = new EntryData();

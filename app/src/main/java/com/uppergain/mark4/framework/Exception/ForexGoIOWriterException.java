@@ -1,4 +1,4 @@
-package com.uppergain.mark4.Exception;
+package com.uppergain.mark4.framework.Exception;
 
 /**
  * 例外処理クラス［書き込み処理］<br>

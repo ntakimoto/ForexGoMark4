@@ -1,6 +1,6 @@
 package com.uppergain.mark4.framework.State;
 
-import com.uppergain.mark4.Exception.ForexGoIOWriterException;
+import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
 
 /**
  * 各会員の状態に対するインターフェイス<br>

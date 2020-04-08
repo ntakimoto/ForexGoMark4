@@ -1,6 +1,6 @@
 package com.uppergain.mark4.framework.State;
 
-import com.uppergain.mark4.Exception.ForexGoIOWriterException;
+import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
 
 /**
  * <br>
