@@ -35,6 +35,7 @@ public class UserItemCrlTest {
             value.setPrice(10000);
             value.setQuantity(1);
             value.setEffect(1.5);
+            value.setItemID("aaaa");
             value.setExplanation("メタル系スライムに必ずダメージを与える");
             item.put(key, value);
             // アイテム追加
@@ -49,6 +50,7 @@ public class UserItemCrlTest {
             value.setPrice(50000);
             value.setQuantity(1);
             value.setEffect(1.5);
+            value.setItemID("bbbb");
             value.setExplanation("最強の鎧。めちゃくちゃ硬い。");
             item.put(key2, value);
             // アイテム追加
@@ -87,9 +89,16 @@ public class UserItemCrlTest {
         }
 
         @Test
-        public void Case005_正常系_ユーザの所有金額を返す() {
-            int actual = 60000;// 事前準備
-            int expected = sut.getUserMoney();// 実行
+        public void Case005_正常系_ユーザの所有アイテムのIDを返す() {
+            String actual = "aaaa";// 事前準備
+            String expected = sut.getItemID("はぐれメタルの剣");// 実行
+            assertThat(actual, is(expected));// 検証
+        }
+
+        @Test
+        public void Case006_異常系_ユーザの未所有の場合NULLを返す() {
+            String actual = null;// 事前準備
+            String expected = sut.getItemID("はぐれメタルの盾");// 実行
             assertThat(actual, is(expected));// 検証
         }
     }
@@ -118,7 +127,6 @@ public class UserItemCrlTest {
             item.put(key, value1);
             // アイテム追加
             sut.add("user_item",item);
-            sut.upLodeItem(value1);
 
             // 2つ目
             String key2 = "キングメタルの鎧";
@@ -133,11 +141,11 @@ public class UserItemCrlTest {
             item.put(key2, value2);
             // アイテム追加
             sut.add("user_item",item);
-            sut.upLodeItem(value2);
+            sut.upLodeItem(item);
         }
 
         @Test
-        public void Case001_正常系_選択したアイテムをショップに出品する() {
+        public void Case001_正常系_FireBaseにあるアイテムのIDを取得する() {
             String actual = null;// 事前準備
             String expected = null;// 実行
             assertThat(actual, is(expected));// 検証
@@ -159,7 +167,7 @@ public class UserItemCrlTest {
 
         @Test
         public void Case004_正常系_FireBaseに接続可能か確認する() {
-            boolean actual = false;// 事前準備
+            boolean actual = true;// 事前準備
             boolean expected = sut.isConFireBase();// 実行
             assertThat(actual, is(expected));// 検証
         }
@@ -172,9 +180,9 @@ public class UserItemCrlTest {
         }
 
         @Test
-        public void Case005_正常系_FireBaseにあるアイテムのIDを取得する() {
-            String actual = null;// 事前準備
-            String expected = sut.getItemID();// 実行
+        public void Case005_正常系_FireBaseにあるアイテムオブジェクトを取得する() {
+            ItemDetails actual = null;// 事前準備
+            ItemDetails expected = sut.getItems();// 実行
             assertThat(actual, is(expected));// 検証
         }
 
@@ -196,7 +204,7 @@ public class UserItemCrlTest {
 
         @Test
         public void Case008_正常系_FireBaseのキーを取得する() {
-            String actual = "UUID";// 事前準備
+            String actual = "ShopItems";// 事前準備
             String expected = sut.getKey();// 実行
             assertThat(actual, is(expected));// 検証
         }
