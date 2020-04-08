@@ -26,10 +26,8 @@ public class TopActivity extends AppCompatActivity {
         newGame = findViewById(R.id.new_game);
         gameStart = findViewById(R.id.game_start);
 
-        newGame = findViewById(R.id.new_game);
-        gameStart = findViewById(R.id.game_start);
-
         DataIO io = new PrefDataIO();
+        //プレファレンスファイルを確認
         String prefData = io.reader("USER_STATUS");
         //ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
@@ -49,6 +47,5 @@ public class TopActivity extends AppCompatActivity {
             facade = new GemeStartFacade();
             facade.startGeme();
         }
-
     }
 }

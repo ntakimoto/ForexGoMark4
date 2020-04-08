@@ -2,7 +2,7 @@ package com.uppergain.mark4;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.uppergain.mark4.control.UserInfo;
+import com.uppergain.mark4.Entity.UserInfo;
 import com.uppergain.mark4.control.UserInfoCrl;
 
 import org.junit.Before;

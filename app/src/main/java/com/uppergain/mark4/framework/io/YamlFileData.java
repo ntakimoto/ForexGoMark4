@@ -24,7 +24,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class YamlFileData implements DataFileIO {
 
-    private String path = null;
+    private String path;
     Context context = ForexGoApp.getInstance().getApplicationContext();
 
     public YamlFileData() {

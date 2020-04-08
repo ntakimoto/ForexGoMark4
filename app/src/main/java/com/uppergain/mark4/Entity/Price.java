@@ -1,4 +1,4 @@
-package com.uppergain.mark4.framework.io;
+package com.uppergain.mark4.Entity;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;

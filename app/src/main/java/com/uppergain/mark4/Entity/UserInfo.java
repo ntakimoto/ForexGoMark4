@@ -1,4 +1,4 @@
-package com.uppergain.mark4.control;
+package com.uppergain.mark4.Entity;
 
 /**
  * ユーザ情報クラス<br>

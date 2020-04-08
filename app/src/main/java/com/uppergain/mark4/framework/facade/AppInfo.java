@@ -34,5 +34,4 @@ public class AppInfo implements CheckAction {
         return false;
     }
 
-
 }

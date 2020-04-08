@@ -39,8 +39,6 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    //yaml対応
-    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.8'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
     //Cucumber-Android
     androidTestImplementation "io.cucumber:cucumber-android:4.4.0"
@@ -49,4 +47,10 @@ dependencies {
     androidTestImplementation 'androidx.test:core:1.1.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test:rules:1.1.1'
+    //yaml対応
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.18'
+    androidTestImplementation('com.orhanobut:mockwebserverplus:1.0.0') {
+        exclude module: 'snakeyaml'
+    }
+    androidTestImplementation 'pl.droidsonroids.yaml:snakeyaml:1.18-android'
 }
