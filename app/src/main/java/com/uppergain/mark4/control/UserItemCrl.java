@@ -5,6 +5,7 @@ import com.uppergain.mark4.framework.io.FireBaseData;
 import com.uppergain.mark4.framework.io.YamlFileData;
 
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * ユーザが保有するアイテム操作関連クラス<br>
@@ -66,6 +67,7 @@ public class UserItemCrl {
      * @param askItem
      */
     public void upLodeItem(Object askItem) {
+        //String itemID = getCreatedUUID();
         fData.writer("ItemID", askItem);
     }
 
@@ -207,5 +209,15 @@ public class UserItemCrl {
         } else {
             return null;
         }
+    }
+
+    /**
+     * ユーザシーケンス発行し、その値を返す
+     * @return 10桁の乱数
+     */
+    private String getCreatedUUID() {
+        UUID uuid = UUID.randomUUID();
+        String str = uuid.toString();
+        return str.substring(24, 34);
     }
 }
