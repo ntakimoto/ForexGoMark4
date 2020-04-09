@@ -39,7 +39,7 @@ public class UserItemCrlTest {
             value.setExplanation("メタル系スライムに必ずダメージを与える");
             item.put(key, value);
             // アイテム追加
-            sut.add("user_item",item);
+            sut.add("user_item", item);
 
             // 2つ目
             String key2 = "キングメタルの鎧";
@@ -54,7 +54,7 @@ public class UserItemCrlTest {
             value.setExplanation("最強の鎧。めちゃくちゃ硬い。");
             item.put(key2, value);
             // アイテム追加
-            sut.add("user_item",item);
+            sut.add("user_item", item);
         }
 
         @Test
@@ -126,7 +126,7 @@ public class UserItemCrlTest {
             value1.setExplanation("メタル系スライムに必ずダメージを与える");
             item.put(key, value1);
             // アイテム追加
-            sut.add("user_item",item);
+            sut.add("user_item", item);
 
             // 2つ目
             String key2 = "キングメタルの鎧";
@@ -140,7 +140,7 @@ public class UserItemCrlTest {
             value2.setExplanation("最強の鎧。めちゃくちゃ硬い。");
             item.put(key2, value2);
             // アイテム追加
-            sut.add("user_item",item);
+            sut.add("user_item", item);
             sut.upLodeItem(item);
         }
 
@@ -208,4 +208,208 @@ public class UserItemCrlTest {
             String expected = sut.getKey();// 実行
             assertThat(actual, is(expected));// 検証
         }
-    }}
+    }
+
+    public static class 網羅性 {
+
+        @Before
+        public void setUp() throws Exception {
+        }
+
+        @Test
+        public void Case001_yaml正常系_reader() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case002_yaml正常系_writer() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case003_yaml正常系_update() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case004_yaml正常系_delete() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case005_yaml正常系_size() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case006_yaml正常系_境界値() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case007_yaml正常系_その他() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case008_yaml異常系_reader() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case009_yaml異常系_writer() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case010_yaml異常系_update() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case011_yaml異常系_delete() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case012_yaml異常系_size() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case013_yaml異常系_境界値() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case014_yaml異常系_その他() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case001_FireBase正常系_reader() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case002_FireBase正常系_writer() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case003_FireBase正常系_update() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case004_FireBase正常系_delete() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case005_FireBase正常系_size() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case006_FireBase正常系_境界値() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case007_FireBase正常系_その他() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case008_FireBase異常系_reader() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case009_FireBase異常系_writer() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case010_FireBase異常系_update() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case011_FireBase異常系_delete() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case012_FireBase異常系_size() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case013_FireBase異常系_境界値() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void Case014_FireBase異常系_その他() {
+            String actual = "";
+            String expected = "";
+            assertThat(actual, is(expected));
+        }
+    }
+}
