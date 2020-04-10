@@ -3,6 +3,7 @@ package com.uppergain.mark4;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,8 @@ import com.uppergain.mark4.framework.facade.CheckAction;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
 import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.PrefDataIO;
+
+import org.androidannotations.annotations.Click;
 
 /**
  * スプラッシュ画面およびTOP画面Activity<br>
@@ -33,6 +36,8 @@ public class TopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // タイトルバーを非表示
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_top);
 
         //1_0_0_パーミッション許諾処理
@@ -69,5 +74,16 @@ public class TopActivity extends AppCompatActivity {
             facade = new GemeStartFacade();
             facade.startGeme();
         }
+    }
+    //バトル画面へ遷移する
+    @Click(R.id.game_start)
+    public void startGame(View v) {
+
+    }
+
+    //新規登録画面へ遷移する
+    @Click(R.id.new_game)
+    public void registerNewGame(View v) {
+
     }
 }
