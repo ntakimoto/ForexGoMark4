@@ -1,16 +1,31 @@
 package com.uppergain.mark4;
 
+import android.content.Context;
+
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
-
+@RunWith(AndroidJUnit4.class)
 public class TopActivityTest {
+
+    Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
     @Before
     public void setUp() throws Exception {
+
+    }
+
+    @Test
+    public void 正常系_0_0_0_テスト対象アプリケーションのパッケージ名を取得する() {
+        assertEquals("com.uppergain.mark4", context.getPackageName());
     }
 
     @Test
@@ -363,4 +378,116 @@ public class TopActivityTest {
         assertThat(actual, is(expected));
     }
 
+    //会員登録済
+    @Test
+    public void 正常系_2_2_1_会員登録済GAMESTARTボタンを表示すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_2_一連の処理が動作すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 異常系_2_2_3_ダイアログを表示すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_4_Versionチェック() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_5_ダイアログを表示すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_6_ダイアログを閉じること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_7_ストア画面へ遷移すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_8_運営情報の有無チェック() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_9_ダイアログを表示すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_10_ダイアログを閉じること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_11_メンテナンス情報有無チェック() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_12_ダイアログを表示すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_13_ダイアログを閉じること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_14_バトル画面へ遷移すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 異常系_2_2_15_ダイアログを表示すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void 正常系_2_2_16_バトル画面へ遷移すること() {
+        String actual = "";
+        String expected = "";
+        assertThat(actual, is(expected));
+    }
 }
