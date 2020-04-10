@@ -8,6 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.uppergain.mark4.framework.State.UserState;
+import com.uppergain.mark4.framework.facade.AppPermission;
+import com.uppergain.mark4.framework.facade.CheckAction;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
 import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.PrefDataIO;
@@ -26,11 +28,15 @@ public class TopActivity extends AppCompatActivity {
     private Button newGame;
     private Button gameStart;
     private GemeStartFacade facade;
+    private CheckAction checkedAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top);
+
+        checkedAction = new AppPermission(this);
+        checkedAction.sysCheck();
 
         newGame = findViewById(R.id.new_game);
         gameStart = findViewById(R.id.game_start);
