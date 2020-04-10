@@ -56,4 +56,7 @@ dependencies {
         exclude module: 'snakeyaml'
     }
     androidTestImplementation 'pl.droidsonroids.yaml:snakeyaml:1.18-android'
+    //オブジェクトを＠で処理するライブラリ
+    annotationProcessor "org.androidannotations:androidannotations:4.4.0"
+    implementation "org.androidannotations:androidannotations-api:4.4.0"
 }
