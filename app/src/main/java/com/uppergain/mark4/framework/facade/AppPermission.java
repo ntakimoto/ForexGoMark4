@@ -55,7 +55,7 @@ public class AppPermission implements CheckAction {
     }
 
     @Override
-    public void showDialog() { }
+    public void showMsg() { }
 
     @Override
     public boolean infoFlag() {

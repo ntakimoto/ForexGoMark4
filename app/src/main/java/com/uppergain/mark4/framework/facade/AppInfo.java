@@ -20,12 +20,12 @@ public class AppInfo implements CheckAction {
         Log.d(TAG, "sysCheck: 管理人からのお知らせを表示します");
         //TODO:通信チェック
         if(infoFlag()){
-            showDialog();
+            showMsg();
         }
     }
 
     @Override
-    public void showDialog() {
+    public void showMsg() {
         //FireBase情報取得
     }
 

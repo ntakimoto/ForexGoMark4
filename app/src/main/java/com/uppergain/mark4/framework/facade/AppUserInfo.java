@@ -98,7 +98,7 @@ public class AppUserInfo implements CheckAction {
     }
 
     @Override
-    public void showDialog() {
+    public void showMsg() {
     }
 
     @Override

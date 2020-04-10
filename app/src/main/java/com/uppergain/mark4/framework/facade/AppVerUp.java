@@ -20,12 +20,12 @@ public class AppVerUp implements CheckAction {
         Log.d(TAG, "sysCheck: 新しいバージョンの有無を確認します");
         //TODO:通信チェック
         if(infoFlag()){
-            showDialog();
+            showMsg();
         }
     }
 
     @Override
-    public void showDialog() {
+    public void showMsg() {
         //ストア情報を取得
     }
 

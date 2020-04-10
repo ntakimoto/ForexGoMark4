@@ -9,7 +9,7 @@ public class AppSystemMaintenance implements CheckAction {
     }
 
     @Override
-    public void showDialog() {
+    public void showMsg() {
 
     }
 
