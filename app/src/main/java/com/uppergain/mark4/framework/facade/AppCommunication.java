@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.uppergain.mark4.R;
 
 /**
  * 通信状況を確認するクラス<br>
@@ -25,16 +28,16 @@ public class AppCommunication implements CheckAction {
     @Override
     public void sysCheck() {
         if (!conFlag()) {
-            showDialog();
+            showMsg();
         } else {
             Log.d(TAG, "*********************通信圏内*********************");
         }
     }
 
     @Override
-    public void showDialog() {
-        //TODO:showDialog()メッセージ
-        Log.d(TAG, "showDialog()メッセージ");
+    public void showMsg() {
+        Toast toast = Toast.makeText(context, R.string.out_of_service_area, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
