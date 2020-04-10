@@ -16,8 +16,6 @@ import com.uppergain.mark4.framework.facade.GemeStartFacade;
 import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.PrefDataIO;
 
-import org.androidannotations.annotations.Click;
-
 /**
  * スプラッシュ画面およびTOP画面Activity<br>
  * 基底GoF:-
@@ -74,22 +72,37 @@ public class TopActivity extends AppCompatActivity {
             new UserState(prefData);
             Log.d(TAG, "[GAME START]ボタンを表示すること");
             newGame.setVisibility(View.INVISIBLE);
-            //通信チェック
-            ForexGoApp.getCommunication();
-            //一連の処理が動作する
-            facade = new GemeStartFacade();
-            facade.startGeme();
         }
-    }
-    //バトル画面へ遷移する
-    @Click(R.id.game_start)
-    public void startGame(View v) {
-        Log.d(TAG, "startGame: ボタンを押下しました");
-    }
 
-    //新規登録画面へ遷移する
-    @Click(R.id.new_game)
-    public void registerNewGame(View v) {
-        Log.d(TAG, "registerNewGame: ボタンを押下しました");
+        //[NEW GAME］ボタンを押下した場合
+        newGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isCon = ForexGoApp.getCommunication().conFlag();
+                if (!isCon) {
+                    ForexGoApp.getCommunication().showMsg();
+                } else {
+                    Log.d(TAG, "[NEW GAME]: Google登録画面へ遷移する");
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, new RegisterGoogleFragment()).commit();
+                }
+            }
+        });
+
+        //[GAME START]ボタンを押下した場合
+        gameStart.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                boolean isCon = ForexGoApp.getCommunication().conFlag();
+                if (!isCon) {
+                    ForexGoApp.getCommunication().showMsg();
+                } else {
+                    Log.d(TAG, "[GAME START]: バトル画面へ遷移する");
+                    //Intent intent = new Intent(this, MainActivity.class);
+                    //startActivity(intent);
+                    //一連の処理が動作する
+                    facade = new GemeStartFacade();
+                    facade.startGeme();
+                }
+            }
+        });
     }
 }
