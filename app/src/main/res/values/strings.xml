@@ -13,4 +13,6 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+
+    <string name="out_of_service_area">通信状態がよくありません。環境をご確認の上、サイドアクセスしてください。</string>
 </resources>
