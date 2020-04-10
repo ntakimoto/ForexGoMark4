@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,10 +26,13 @@ import org.androidannotations.annotations.Click;
  * @version 0.0.1
  * @since 2020-04-08
  */
+//@EActivity(R.layout.activity_top)
 public class TopActivity extends AppCompatActivity {
     private static final String TAG = "TopActivity";
 
+    //@ViewById(R.id.new_game)
     private Button newGame;
+    //@ViewById(R.id.game_start)
     private Button gameStart;
     private GemeStartFacade facade;
     private CheckAction checkedAction;
@@ -38,6 +42,8 @@ public class TopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // タイトルバーを非表示
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // ステータスバーを非表示
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_top);
 
         //1_0_0_パーミッション許諾処理
@@ -78,12 +84,12 @@ public class TopActivity extends AppCompatActivity {
     //バトル画面へ遷移する
     @Click(R.id.game_start)
     public void startGame(View v) {
-
+        Log.d(TAG, "startGame: ボタンを押下しました");
     }
 
     //新規登録画面へ遷移する
     @Click(R.id.new_game)
     public void registerNewGame(View v) {
-
+        Log.d(TAG, "registerNewGame: ボタンを押下しました");
     }
 }
