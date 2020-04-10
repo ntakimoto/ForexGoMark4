@@ -3,6 +3,7 @@ package com.uppergain.mark4;
 import android.app.Application;
 
 import com.uppergain.mark4.framework.State.UserState;
+import com.uppergain.mark4.framework.facade.AppCommunication;
 
 import java.util.Date;
 
@@ -19,11 +20,13 @@ public class ForexGoApp extends Application {
     private static ForexGoApp instance = null;
     private static Date date = new Date();//登録日
     private static UserState state;//会員状態
+    public static AppCommunication communication = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
+        communication = new AppCommunication(this);
     }
 
     public static ForexGoApp getInstance() {
@@ -52,6 +55,14 @@ public class ForexGoApp extends Application {
      */
     public static UserState getState() {
         return state;
+    }
+
+    /**
+     * 通信チェック処理
+     * @return
+     */
+    public static AppCommunication getCommunication() {
+        return communication;
     }
 }
 

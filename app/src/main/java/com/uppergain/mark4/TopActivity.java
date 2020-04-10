@@ -35,16 +35,23 @@ public class TopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top);
 
+        //1_0_0_パーミッション許諾処理
         checkedAction = new AppPermission(this);
         checkedAction.sysCheck();
 
+        //1_2_7_スプラッシュ画面表示
+        //1_2_8_3秒後、TOP画面に自動繊維する
+        //2_0_0_背景画像表示
+        //x_x_x_サウンド再生
+
+        //ボタン表示分岐処理
         newGame = findViewById(R.id.new_game);
         gameStart = findViewById(R.id.game_start);
 
         DataIO io = new PrefDataIO();
         //プレファレンスファイルを確認
         String prefData = io.reader("USER_STATUS");
-        //ボタン表示判定
+        //2_0_1_ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
             new UserState("0");
             Log.d(TAG, "[NEW GAME］ボタンを表示すること[ド新規]");
@@ -56,9 +63,9 @@ public class TopActivity extends AppCompatActivity {
             new UserState(prefData);
             Log.d(TAG, "[GAME START]ボタンを表示すること");
             newGame.setVisibility(View.INVISIBLE);
-            //【 2_2_2 】通信チェック
-            //ForexGoApp.getCommunication();
-            //【 2_2_2 】一連の処理が動作する
+            //通信チェック
+            ForexGoApp.getCommunication();
+            //一連の処理が動作する
             facade = new GemeStartFacade();
             facade.startGeme();
         }
