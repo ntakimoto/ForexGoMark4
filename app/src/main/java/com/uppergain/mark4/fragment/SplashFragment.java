@@ -1,5 +1,6 @@
 package com.uppergain.mark4.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,18 @@ public class SplashFragment extends Fragment {
             @NonNull LayoutInflater inflater,
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_splash,container,false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        /** 省略 **/
+
+        // ラストに追加
+        // 背景色をセットする
+        view.setBackgroundColor(Color.WHITE);
+        // onCreateで受け取った値をセットする
+        //mTextView.setText(mName);
     }
 }
