@@ -6,10 +6,15 @@ import android.content.Context;
 import androidx.core.content.ContextCompat;
 import androidx.test.platform.app.InstrumentationRegistry;
 
+import com.uppergain.mark4.framework.io.DataIO;
+import com.uppergain.mark4.framework.io.PrefDataIO;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
+
+import java.io.File;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -55,7 +60,7 @@ public class TopActivityTest {
         }
 
         @Test
-        public void 異常系_1_1_4_書き込み許諾しない場合アプリキルすること() {
+        public void 異常系_1_1_4_読み込み許諾しない場合アプリキルすること() {
             String actual = null;//アプリが起動していない
             String expected = "";
             assertThat(actual, is(expected));
@@ -76,7 +81,7 @@ public class TopActivityTest {
         }
 
         @Test
-        public void 正常系_1_2_7_3秒表示しフェードアウトすること() {
+        public void 正常系_1_2_7_スプラッシュ画面を表示すること() {
             String actual = null;
             String expected = "";
             assertThat(actual, is(expected));
@@ -86,6 +91,18 @@ public class TopActivityTest {
         public void 正常系_1_2_8_トップ画面に遷移すること() {
             String actual = null;
             String expected = "";
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void 正常系_2_0_1_プレファレンスファイルが存在すること() {
+            String actual = "com.uppergain.mark4_preferences.xml";
+            String expected = null;
+            File dir = new File("/data/data/"+context.getPackageName()+"/shared_prefs/");
+            File[] list = dir.listFiles();
+            for(int i=0; i<list.length; i++) {
+                expected = list[i].getName();
+            }
             assertThat(actual, is(expected));
         }
 
@@ -99,9 +116,10 @@ public class TopActivityTest {
         }
 
         @Test
-        public void 正常系_x_x_x_プレファレンスファイルが存在し会員ステータスが0である() {
+        public void 正常系_2_0_1_会員ステータスが0である() {
             String actual = "0";
-            String expected = "";
+            DataIO data = new PrefDataIO();
+            String expected = data.reader("USER_STATE");
             assertThat(actual, is(expected));
         }
 
@@ -112,6 +130,13 @@ public class TopActivityTest {
         @Before
         public void setUp() throws Exception {
 
+        }
+
+        @Test
+        public void 正常系_2_0_1_会員ステータスが1である() {
+            String actual = "1";
+            String expected = "";
+            assertThat(actual, is(expected));
         }
 
         @Test
