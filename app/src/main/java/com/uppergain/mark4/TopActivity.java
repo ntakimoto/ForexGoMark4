@@ -49,7 +49,12 @@ public class TopActivity extends AppCompatActivity {
         checkedAction.sysCheck();
 
         //1_2_7_スプラッシュ画面表示
-        //1_2_8_3秒後、TOP画面に自動繊維する
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new SplashFragment()).commit();
+        //1_2_8_3秒後、TOP画面に自動遷移する
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+        }
         //2_0_0_背景画像表示
         //x_x_x_サウンド再生
 
@@ -59,7 +64,7 @@ public class TopActivity extends AppCompatActivity {
 
         DataIO io = new PrefDataIO();
         //プレファレンスファイルを確認
-        String prefData = io.reader("USER_STATUS");
+        String prefData = io.reader(getPackageName()+"_preferences.xml");
         //2_0_1_ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
             new UserState("0");
