@@ -2,6 +2,8 @@ package com.uppergain.mark4.framework.observer;
 
 import android.util.Log;
 
+import com.uppergain.mark4.entity.EntryData;
+
 import java.util.Observable;
 import java.util.Observer;
 

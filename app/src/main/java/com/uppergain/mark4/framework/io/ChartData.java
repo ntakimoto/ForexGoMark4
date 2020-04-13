@@ -3,7 +3,7 @@ package com.uppergain.mark4.framework.io;
 import android.content.Context;
 import android.util.Log;
 
-import com.uppergain.mark4.Entity.Price;
+import com.uppergain.mark4.entity.Price;
 import com.uppergain.mark4.ForexGoApp;
 
 import java.io.File;

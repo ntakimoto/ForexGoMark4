@@ -1,6 +1,6 @@
 package com.uppergain.mark4.control;
 
-import com.uppergain.mark4.Entity.ItemDetails;
+import com.uppergain.mark4.entity.ItemDetails;
 
 import org.junit.Before;
 import org.junit.Test;

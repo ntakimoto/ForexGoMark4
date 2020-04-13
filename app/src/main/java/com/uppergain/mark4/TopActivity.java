@@ -1,5 +1,6 @@
 package com.uppergain.mark4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -79,6 +80,7 @@ public class TopActivity extends AppCompatActivity {
             newGame.setVisibility(View.INVISIBLE);
         }
 
+        final Intent intent = new Intent(this, MainActivity.class);
         //[NEW GAME］ボタンを押下した場合
         newGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +90,8 @@ public class TopActivity extends AppCompatActivity {
                     ForexGoApp.getCommunication().showMsg();
                 } else {
                     Log.d(TAG, "[NEW GAME]: Google登録画面へ遷移する");
+                    startActivity(intent);
+                    finish();
                     //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, new RegisterGoogleFragment()).commit();
                 }
             }

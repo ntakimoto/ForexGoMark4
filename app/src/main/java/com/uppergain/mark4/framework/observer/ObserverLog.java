@@ -1,5 +1,7 @@
 package com.uppergain.mark4.framework.observer;
 
+import com.uppergain.mark4.entity.EntryData;
+
 import java.math.BigDecimal;
 
 public class ObserverLog {

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_battle"
+            android:icon="@drawable/ic_monetization_on_black_24dp"
+            android:title="@string/battle" />
+
+        <item
+            android:id="@+id/nav_chart"
+            android:icon="@drawable/ic_timeline_black_24dp"
+            android:title="@string/chart" />
+
+        <item
+            android:id="@+id/nav_youtube"
+            android:icon="@drawable/ic_play_circle_filled_black_24dp"
+            android:title="@string/youtube" />
+
+        <item
+            android:id="@+id/nav_cal"
+            android:icon="@drawable/ic_event_available_black_24dp"
+            android:title="@string/cal" />
+
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_remove_red_eye_black_24dp"
+            android:title="@string/history" />
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_build_black_24dp"
+            android:title="@string/setting" />
+
+    </group>
+
+    <item android:title="@string/payment">
+        <!--無料会員には非表示
+        android:enabled="false"
+        android:visible="false"-->
+
+        <menu>
+            <item
+                android:id="@+id/nav_store"
+                android:icon="@drawable/ic_local_grocery_store_black_24dp"
+                android:title="@string/store"></item>
+            <item
+                android:id="@+id/nav_move2"
+                android:icon="@drawable/ic_live_tv_black_24dp"
+                android:title="@string/review"></item>
+        </menu>
+    </item>
+
+
+    <item android:title="@string/contact">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_send_black_24dp"
+                android:title="@string/send"></item>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_live_help_black_24dp"
+                android:title="@string/help"></item>
+            <item
+                android:id="@+id/nav_app"
+                android:icon="@drawable/ic_touch_app_black_24dp"
+                android:title="@string/app"></item>
+        </menu>
+    </item>
+<!--
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_slideshow" />
+    </group>
+    -->
+</menu>

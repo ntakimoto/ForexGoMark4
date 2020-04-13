@@ -1,6 +1,6 @@
 package com.uppergain.mark4.control;
 
-import com.uppergain.mark4.Entity.UserInfo;
+import com.uppergain.mark4.entity.UserInfo;
 import com.uppergain.mark4.framework.io.FireBaseData;
 import com.uppergain.mark4.framework.io.YamlFileData;
 
@@ -14,13 +14,14 @@ import java.io.File;
 * @version 0.0.1
 * @since 2020-04-04
 */
-public class UserInfoCrl {
+public class UserInfoCrl extends  DataCrl{
 
 	private YamlFileData yData;
 	private FireBaseData fData;
 
 	public UserInfoCrl() {
 		this.yData = new YamlFileData();
+		fileIO = new YamlFileData();
 	}
 	
 	public UserInfoCrl(String filePath) {
