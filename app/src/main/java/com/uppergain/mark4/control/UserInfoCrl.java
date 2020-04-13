@@ -14,14 +14,13 @@ import java.io.File;
 * @version 0.0.1
 * @since 2020-04-04
 */
-public class UserInfoCrl extends  DataCrl{
+public class UserInfoCrl{
 
 	private YamlFileData yData;
 	private FireBaseData fData;
 
 	public UserInfoCrl() {
 		this.yData = new YamlFileData();
-		fileIO = new YamlFileData();
 	}
 	
 	public UserInfoCrl(String filePath) {
