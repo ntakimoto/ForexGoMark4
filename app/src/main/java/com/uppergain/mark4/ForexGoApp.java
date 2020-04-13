@@ -5,7 +5,9 @@ import android.app.Application;
 import com.uppergain.mark4.framework.State.UserState;
 import com.uppergain.mark4.framework.facade.AppCommunication;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * FirexGo用Applicationクラス<br>
@@ -18,7 +20,6 @@ import java.util.Date;
 public class ForexGoApp extends Application {
 
     private static ForexGoApp instance = null;
-    private static Date date = new Date();//登録日
     private static UserState state;//会員状態
     public static AppCommunication communication = null;
 
@@ -37,8 +38,10 @@ public class ForexGoApp extends Application {
      * システム日時を返す
      * @return 現在のシステム日時
      */
-    public Date getDate() {
-        return date;
+    public static String getDate() {
+        Date date = new Date();//登録日;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return sdf.format(date);
     }
 
     /**
@@ -63,6 +66,15 @@ public class ForexGoApp extends Application {
      */
     public static AppCommunication getCommunication() {
         return communication;
+    }
+
+    /**
+     * ユーザシーケンス発行し、その値を返す
+     */
+    public static String getCreatedUUID() {
+        UUID uuid = UUID.randomUUID();
+        String str = uuid.toString();
+        return str.substring(24, 34);
     }
 }
 
