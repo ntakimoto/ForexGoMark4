@@ -15,4 +15,20 @@
     <string name="home_second">Home Second</string>
 
     <string name="out_of_service_area">通信状態がよくありません。環境をご確認の上、サイドアクセスしてください。</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!--ドロアーメニュー内の文字列【日本語】-->
+    <string name="battle">バトル</string>
+    <string name="chart">チャート</string>
+    <string name="youtube">YouTube</string>
+    <string name="cal">経済指標</string>
+    <string name="history">トレード分析</string>
+    <string name="setting">設定</string>
+    <string name="payment">有料会員向け</string>
+    <string name="store">ストア</string>
+    <string name="review">今週の振り返り</string>
+    <string name="contact">問い合わせ</string>
+    <string name="send">ご要望</string>
+    <string name="help">ヘルプ</string>
+    <string name="app">ForexGoについて</string>
 </resources>
