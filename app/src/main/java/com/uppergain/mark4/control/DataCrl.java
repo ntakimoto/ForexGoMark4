@@ -1,6 +1,7 @@
 package com.uppergain.mark4.control;
 
-import com.uppergain.mark4.framework.io.DataIO2;
+
+import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.FileIO;
 
 /**
@@ -13,10 +14,11 @@ import com.uppergain.mark4.framework.io.FileIO;
  */
 public abstract class DataCrl {
 
-    DataIO2 dataIO;
+    DataIO dataIO;
     FileIO fileIO;
 
     public abstract void setFileIO(FileIO fileIO);
-    public abstract void setDataIO(DataIO2 dataIO);
-
+    public abstract void setDataIO(DataIO dataIO);
+    public abstract String getUserStatus();
+    public abstract void updataData(String s);
 }
