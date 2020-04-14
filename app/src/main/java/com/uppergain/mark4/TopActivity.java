@@ -10,12 +10,11 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.uppergain.mark4.control.UserInfo;
 import com.uppergain.mark4.framework.State.UserState;
 import com.uppergain.mark4.framework.facade.AppPermission;
 import com.uppergain.mark4.framework.facade.CheckAction;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
-import com.uppergain.mark4.framework.io.DataIO;
-import com.uppergain.mark4.framework.io.PrefDataIO;
 
 /**
  * スプラッシュ画面およびTOP画面Activity<br>
@@ -63,9 +62,9 @@ public class TopActivity extends AppCompatActivity {
         newGame = findViewById(R.id.new_game);
         gameStart = findViewById(R.id.game_start);
 
-        DataIO io = new PrefDataIO();
+        UserInfo io = new UserInfo();
         //プレファレンスファイルを確認
-        String prefData = io.reader(getPackageName()+"_preferences.xml");
+        String prefData = io.getUserStatus();
         //2_0_1_ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
             new UserState("0");
@@ -97,6 +96,7 @@ public class TopActivity extends AppCompatActivity {
             }
         });
 
+        final Intent intent2 = new Intent(this, MainActivity.class);
         //[GAME START]ボタンを押下した場合
         gameStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -105,8 +105,7 @@ public class TopActivity extends AppCompatActivity {
                     ForexGoApp.getCommunication().showMsg();
                 } else {
                     Log.d(TAG, "[GAME START]: バトル画面へ遷移する");
-                    //Intent intent = new Intent(this, MainActivity.class);
-                    //startActivity(intent);
+                    startActivity(intent2);
                     //一連の処理が動作する
                     facade = new GemeStartFacade();
                     facade.startGeme();
