@@ -2,12 +2,13 @@ package com.uppergain.mark4;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.res.Resources;
 
 import androidx.core.content.ContextCompat;
+import androidx.test.core.app.ApplicationProvider;
 import androidx.test.platform.app.InstrumentationRegistry;
 
-import com.uppergain.mark4.framework.io.DataIO;
-import com.uppergain.mark4.framework.io.PrefDataIO;
+import com.uppergain.mark4.control.UserInfo;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -96,54 +97,68 @@ public class TopActivityTest {
 
         @Test
         public void 正常系_2_0_1_プレファレンスファイルが存在すること() {
-            String actual = "com.uppergain.mark4_preferences.xml";
+            String actual = "USER_INFO.xml";
             String expected = null;
-            File dir = new File("/data/data/"+context.getPackageName()+"/shared_prefs/");
+            File dir = new File("/data/data/" + context.getPackageName() + "/shared_prefs/");
             File[] list = dir.listFiles();
-            for(int i=0; i<list.length; i++) {
+            for (int i = 0; i < list.length; i++) {
                 expected = list[i].getName();
             }
             assertThat(actual, is(expected));
         }
 
     }
+
     public static class 初回起動以降 {
-        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        //Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        private Context context = ApplicationProvider.getApplicationContext();
+        UserInfo sut;
 
         @Before
         public void setUp() throws Exception {
-
+            sut = new UserInfo();
         }
 
         @Test
         public void 正常系_2_0_1_会員ステータスが0である() {
-            String actual = "0";
-            DataIO data = new PrefDataIO();
-            String expected = data.reader("USER_STATE");
+            String actual = "0";// 事前準備
+            sut.updataData("0");
+            String expected = sut.getUserStatus();// 実行
+            assertThat(actual, is(expected));// 検証
+        }
+
+        @Test
+        public void 正常系_2_2_1_会員登録済NEWGAMEボタンを表示すること() {
+            Resources res = context.getResources();
+            int actual = R.id.new_game;
+            int expected = res.getIdentifier("new_game", "id", context.getPackageName());
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void 正常系_2_0_1_会員ステータスが1である() {
+            String actual = "1";
+            sut.updataData("1");
+            String expected = sut.getUserStatus();
+            assertThat(actual, is(expected));
+        }
+
+        @Test
+        public void 正常系_2_2_1_会員登録済GAMESTARTボタンを表示すること() {
+            Resources res = context.getResources();
+            int actual = R.id.game_start;
+            int expected = res.getIdentifier("game_start", "id", context.getPackageName());
             assertThat(actual, is(expected));
         }
 
     }
+
     public static class 会員登録済 {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         @Before
         public void setUp() throws Exception {
 
-        }
-
-        @Test
-        public void 正常系_2_0_1_会員ステータスが1である() {
-            String actual = "1";
-            String expected = "";
-            assertThat(actual, is(expected));
-        }
-
-        @Test
-        public void 正常系_2_2_1_会員登録済GAMESTARTボタンを表示すること() {
-            String actual = null;
-            String expected = "";
-            assertThat(actual, is(expected));
         }
 
         @Test
