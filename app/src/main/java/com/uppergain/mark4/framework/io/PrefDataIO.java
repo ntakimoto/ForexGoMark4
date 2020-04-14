@@ -19,7 +19,7 @@ import java.util.Map;
  * @version 0.0.1
  * @since 2020-02-22
  */
-public class PrefDataIO implements DataIO {
+public class PrefDataIO implements DataIO2 {
     private static final String TAG = "PrefDataIO";
 
     SharedPreferences prefer;

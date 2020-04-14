@@ -18,7 +18,7 @@ import java.util.Map;
  * @version 0.0.3
  * @since 2020-03-01
  */
-public class CSVdataIO implements DataIO {
+public class CSVdataIO implements DataIO2 {
     private static final String TAG = "CSVdataIO";
 
     //ファイル読み込みで使用する３つのクラス

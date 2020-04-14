@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.uppergain.mark4.ForexGoApp;
 import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
-import com.uppergain.mark4.framework.io.DataIO;
+import com.uppergain.mark4.framework.io.DataIO2;
 import com.uppergain.mark4.framework.io.PrefDataIO;
 
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class TemporaryMemberState implements State {
     private static final String TAG = "TemporaryMemberState";
 
     UserState userState;
-    DataIO io;
+    DataIO2 io;
 
     public TemporaryMemberState() {
     }

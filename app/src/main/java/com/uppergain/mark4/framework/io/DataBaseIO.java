@@ -11,7 +11,7 @@ import java.util.Map;
  * @version 0.0.1
  * @since 2020-02-22
  */
-public class DataBaseIO implements DataIO {
+public class DataBaseIO implements DataIO2 {
 
     boolean isInsideDataBase;
 
