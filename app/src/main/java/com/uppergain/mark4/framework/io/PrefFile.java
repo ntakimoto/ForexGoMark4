@@ -9,7 +9,6 @@ import com.uppergain.mark4.ForexGoApp;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -21,7 +20,7 @@ import static android.content.Context.MODE_PRIVATE;
  * @version 0.0.1
  * @since 2020-04-13
  */
-public class PrefFile implements DataIO2, FileIO {
+public class PrefFile implements DataIO, FileIO {
 
     SharedPreferences prefer;
     Context context = ForexGoApp.getInstance().getApplicationContext();
@@ -34,7 +33,7 @@ public class PrefFile implements DataIO2, FileIO {
      * すべての値を取得する処理
      *
      * @param target 指定するプレファレンスファイル名
-     * @return プレファレンスに登録してあるすべての値
+     * @return SharedPreferencesに登録してあるすべての値
      */
     @Override
     public Object readData(String target) {
@@ -47,7 +46,7 @@ public class PrefFile implements DataIO2, FileIO {
     /**
      * 会員種別を取得する処理
      *
-     * @param target 指定するプレファレンスファイル名
+     * @param target 指定するSharedPreferencesファイル名
      * @return 会員種別
      */
     public String getUserStatus(String target) {
@@ -60,7 +59,7 @@ public class PrefFile implements DataIO2, FileIO {
     /**
      * ユーザSEQを取得する処理
      *
-     * @param target 指定するプレファレンスファイル名
+     * @param target 指定するSharedPreferencesファイル名
      * @return ユーザSEQ
      */
     public String getUserSeq(String target) {
@@ -73,7 +72,7 @@ public class PrefFile implements DataIO2, FileIO {
     /**
      * 初回起動日を取得する処理
      *
-     * @param target 指定するプレファレンスファイル名
+     * @param target 指定するSharedPreferencesファイル名
      * @return 初回起動日
      */
     public String getRegisterDate(String target) {
@@ -84,21 +83,26 @@ public class PrefFile implements DataIO2, FileIO {
     }
 
     /**
-     * @param key
-     * @param newData
+     * ユーザ情報を更新する
+     *
+     * @param key 指定するSharedPreferencesファイル名
+     * @param newData 更新値
      * @return
      */
     @Override
     public Object updateData(String key, Object newData) {
-        Set<String> set = (Set<String>) newData;
-        prefer.getStringSet(key, set);
+        deleteData("USER_INFO");
+        String value = (String) newData;
+        SharedPreferences pref = (SharedPreferences) this.readFile("USER_INFO");
+        pref.edit().putString(key,value).apply();
         Object obj = "ユーザー情報が更新されました。";
         return obj;
     }
 
     @Override
     public void deleteData(String targetData) {
-
+        SharedPreferences pref = (SharedPreferences) this.readFile(targetData);
+        pref.edit().remove("USER_STATUS").apply();
     }
 
     @Override
