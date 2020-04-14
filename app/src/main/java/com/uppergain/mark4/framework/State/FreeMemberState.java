@@ -20,27 +20,7 @@ public class FreeMemberState implements State {
      */
     public FreeMemberState(UserState userState) {
         this.userState = userState;
-        //Common.getInstance().setState(userState);
         Log.d(TAG, "*********************無料会員または休会会員*********************");
-    }
-
-    @Override
-    public String readPreference() {
-        return null;
-    }
-
-    @Override
-    public void writePreference(UserState userState) {
-        //UID
-        //メールアドレス
-        //ゲーム設定
-        //音量
-        //レバレッジ
-        //損切り設定
-        //利食い設定
-        //ニックネーム
-        //画像URL
-        //前回選択通過ペア
     }
 
     /**

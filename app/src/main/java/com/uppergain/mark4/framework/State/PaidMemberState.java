@@ -23,15 +23,6 @@ public class PaidMemberState implements State {
         Log.d(TAG, "*********************有料会員*********************");
     }
 
-    @Override
-    public String readPreference() {
-        return null;
-    }
-
-    @Override
-    public void writePreference(UserState userState)  {
-
-    }
 
     @Override
     public void register() {

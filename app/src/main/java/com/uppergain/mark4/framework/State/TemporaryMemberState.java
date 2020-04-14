@@ -2,15 +2,6 @@ package com.uppergain.mark4.framework.State;
 
 import android.util.Log;
 
-import com.uppergain.mark4.ForexGoApp;
-import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
-import com.uppergain.mark4.framework.io.DataIO2;
-import com.uppergain.mark4.framework.io.PrefDataIO;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
 /**
  * 仮会員または退会会員クラス<br>
  * 基底GoF:Stateパターン
@@ -23,7 +14,6 @@ public class TemporaryMemberState implements State {
     private static final String TAG = "TemporaryMemberState";
 
     UserState userState;
-    DataIO2 io;
 
     public TemporaryMemberState() {
     }
@@ -34,58 +24,8 @@ public class TemporaryMemberState implements State {
     public TemporaryMemberState(UserState userState) {
         this.userState = userState;
         //共通機能に現在ステータスを設定
-        ForexGoApp.getInstance().setState(this.userState);
-        io = new PrefDataIO();
         Log.d(TAG, "*********************仮会員または退会会員*********************");
-        createPreference();
         userState.setState(this);
-    }
-
-    /**
-     * 【 2_0_2 】プレファレンスを作成する<br>
-     * 0:仮会員または退会会員
-     */
-    public void createPreference() {
-        try {
-            writePreference(userState);
-        } catch (ForexGoIOWriterException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 【 2_0_3 】保存されているプレファレンス会員の状態を返す
-     *
-     * @return ユーザ会員の状態
-     */
-    @Override
-    public String readPreference() {
-        return io.reader("USER_STATUS");
-    }
-
-    /**
-     * 【 2_0_3 】プレファレンスに書き込む前処理<br>
-     * 登録日時<br>
-     * ユーザシーケンス
-     */
-    @Override
-    public void writePreference(UserState userState) throws ForexGoIOWriterException {
-        if (userState.equals(userState)) {
-            Map<String, String> saveData = new HashMap<>();
-            saveData.put("USER_STATUS", "" + "0");
-            saveData.put("REGISTER_DATE", "" + ForexGoApp.getInstance().getDate());
-            saveData.put("USER_SEQ", "" + getCreatedUUID());
-            io.writer(saveData);
-        } else throw new ForexGoIOWriterException("会員ステータスが不正です。");
-    }
-
-    /**
-     * ユーザシーケンス発行し、その値を返す
-     */
-    private String getCreatedUUID() {
-        UUID uuid = UUID.randomUUID();
-        String str = uuid.toString();
-        return str.substring(24, 34);
     }
 
     /**

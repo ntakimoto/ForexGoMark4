@@ -24,16 +24,6 @@ public class NoPositionMemberState implements State {
     }
 
     @Override
-    public String readPreference() {
-        return null;
-    }
-
-    @Override
-    public void writePreference(UserState userState) {
-
-    }
-
-    @Override
     public void register() {
 
     }

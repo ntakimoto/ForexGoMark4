@@ -2,8 +2,6 @@ package com.uppergain.mark4.framework.State;
 
 import android.util.Log;
 
-import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
-
 /**
  * 未納状態の会員クラス<br>
  * 基底GoF:Stateパターン
@@ -23,16 +21,6 @@ public class UnpaidMemberState implements State {
     public UnpaidMemberState(UserState userState) {
         this.userState = userState;
         Log.d(TAG, "*********************未納会員*********************");
-    }
-
-    @Override
-    public String readPreference() {
-        return null;
-    }
-
-    @Override
-    public void writePreference(UserState userState) throws ForexGoIOWriterException {
-
     }
 
     /**

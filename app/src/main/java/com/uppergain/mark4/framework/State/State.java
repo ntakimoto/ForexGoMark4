@@ -1,7 +1,5 @@
 package com.uppergain.mark4.framework.State;
 
-import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
-
 /**
  * 各会員の状態に対するインターフェイス<br>
  * 基底GoF:Stateパターン
@@ -11,8 +9,6 @@ import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
  */
 public interface State {
 
-    String readPreference();
-    void writePreference(UserState userState) throws ForexGoIOWriterException;
     void register();
     void change();
     void entry();

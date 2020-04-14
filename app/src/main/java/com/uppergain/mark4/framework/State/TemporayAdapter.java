@@ -1,7 +1,5 @@
 package com.uppergain.mark4.framework.State;
 
-import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
-
 /**
  * <br>
  * 基底GoF:Stateパターン + Adapterパターン
@@ -12,21 +10,7 @@ import com.uppergain.mark4.framework.Exception.ForexGoIOWriterException;
  */
 public class TemporayAdapter implements State {
 
-    Pref pref;
-
-    public TemporayAdapter(Pref pref){
-        this.pref = pref;
-    }
-
-    @Override
-    public String readPreference() {
-        return pref.readPreference();
-    }
-
-    @Override
-    public void writePreference(UserState userState) throws ForexGoIOWriterException {
-
-    }
+    
 
     @Override
     public void register() {
