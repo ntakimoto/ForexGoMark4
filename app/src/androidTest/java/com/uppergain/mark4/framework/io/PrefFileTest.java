@@ -33,6 +33,7 @@ public class PrefFileTest {
     @Test
     public void 会員種別を取得する() {
         String actual = "0";// 事前準備
+        sut.updateData("USER_STATUS","0");
         String expected = sut.getUserStatus("USER_INFO");// 実行
         assertThat(actual, is(expected));// 検証
     }
@@ -59,6 +60,10 @@ public class PrefFileTest {
     }
 
     @Test
-    public void readFile() {
+    public void 登録済みの場合の会員種別を取得する() {
+        String actual = "1";// 事前準備
+        sut.updateData("USER_STATUS","1");
+        String expected = sut.getUserStatus("USER_INFO");// 実行
+        assertThat(actual, is(expected));// 検証
     }
 }
