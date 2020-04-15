@@ -18,7 +18,6 @@ public class AppInfo implements CheckAction {
     @Override
     public void sysCheck() {
         Log.d(TAG, "sysCheck: 管理人からのお知らせを表示します");
-        //TODO:通信チェック
         if(infoFlag()){
             showMsg();
         }
