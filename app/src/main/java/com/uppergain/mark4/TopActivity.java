@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -12,25 +11,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.uppergain.mark4.control.UserInfo;
 import com.uppergain.mark4.framework.State.UserState;
-import com.uppergain.mark4.framework.facade.AppPermission;
 import com.uppergain.mark4.framework.facade.CheckAction;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
 
 /**
- * スプラッシュ画面およびTOP画面Activity<br>
+ * TOP画面Activity<br>
  * 基底GoF:-
  *
  * @author ntakimoto
  * @version 0.0.1
  * @since 2020-04-08
  */
-//@EActivity(R.layout.activity_top)
 public class TopActivity extends AppCompatActivity {
     private static final String TAG = "TopActivity";
 
-    //@ViewById(R.id.new_game)
     private Button newGame;
-    //@ViewById(R.id.game_start)
     private Button gameStart;
     private GemeStartFacade facade;
     private CheckAction checkedAction;
@@ -38,24 +33,11 @@ public class TopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // タイトルバーを非表示
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         // ステータスバーを非表示
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //2_0_0_背景画像表示
         setContentView(R.layout.activity_top);
 
-        //1_0_0_パーミッション許諾処理
-        checkedAction = new AppPermission(this);
-        checkedAction.sysCheck();
-
-        //1_2_7_スプラッシュ画面表示
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new SplashFragment()).commit();
-        //1_2_8_3秒後、TOP画面に自動遷移する
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-        }
-        //2_0_0_背景画像表示
         //x_x_x_サウンド再生
 
         //ボタン表示分岐処理
@@ -67,7 +49,7 @@ public class TopActivity extends AppCompatActivity {
         String prefData = io.getUserStatus();
         //2_0_1_ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
-            new UserState("0");
+            new UserState(prefData);
             Log.d(TAG, "[NEW GAME］ボタンを表示すること[ド新規]");
             gameStart.setVisibility(View.INVISIBLE);
         } else if (prefData.equals("0")) {//会員テータスが0である場合
@@ -106,6 +88,7 @@ public class TopActivity extends AppCompatActivity {
                 } else {
                     Log.d(TAG, "[GAME START]: バトル画面へ遷移する");
                     startActivity(intent2);
+                    finish();
                     //一連の処理が動作する
                     facade = new GemeStartFacade();
                     facade.startGeme();
