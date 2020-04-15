@@ -45,7 +45,16 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_battle)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_battle,
+                R.id.nav_chart,
+                R.id.nav_youtube,
+                R.id.nav_cal,
+                R.id.nav_history,
+                R.id.nav_setting,
+                R.id.nav_youtube2,
+                R.id.nav_store,
+                R.id.nav_app)
                 .setDrawerLayout(drawer)
                 .build();
 
