@@ -3,7 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_battle">
+
+    <fragment
+        android:id="@+id/nav_battle"
+        android:name="com.uppergain.mark4.ui.battle.BattleFragment"
+        android:label="@string/battle"
+        tools:layout="@layout/fragment_battle">
+        <action
+            android:id="@+id/action_nav_battle_to_nav_contact"
+            app:destination="@id/nav_app" />
+        <action
+            android:id="@+id/action_nav_battle_to_nav_setting"
+            app:destination="@id/nav_setting" />
+        <action
+            android:id="@+id/action_nav_battle_to_nav_history"
+            app:destination="@id/nav_history" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_chart"
+        android:name="com.uppergain.mark4.ui.chart.ChartFragment"
+        android:label="@string/chart"
+        tools:layout="@layout/fragment_chartview">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_youtube"
+        android:name="com.uppergain.mark4.ui.youtube.YoutubeFragment"
+        android:label="@string/youtube"
+        tools:layout="@layout/fragment_youtube"/>
+
+    <fragment
+        android:id="@+id/nav_cal"
+        android:name="com.uppergain.mark4.ui.economy.CalFragment"
+        android:label="@string/cal"
+        tools:layout="@layout/fragment_cal">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.uppergain.mark4.ui.history.TradingHistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_nav_history_to_nav_battle"
+            app:destination="@id/nav_battle" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.uppergain.mark4.ui.setting.SettingFragment"
+        android:label="@string/setting"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_nav_setting_to_nav_battle"
+            app:destination="@id/nav_battle" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_store"
+        android:name="com.uppergain.mark4.ui.store.StoreFragment"
+        android:label="@string/store"
+        tools:layout="@layout/fragment_store">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_youtube2"
+        android:name="com.uppergain.mark4.ui.youtube2.Youtube2Fragment"
+        android:label="@string/youtube2"
+        tools:layout="@layout/fragment_youtube2">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.uppergain.mark4.ui.about.AboutFragment"
+        android:label="@string/send"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_nav_contact_to_nav_battle"
+            app:destination="@id/nav_battle" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.uppergain.mark4.ui.about.AboutFragment"
+        android:label="@string/help"
+        tools:layout="@layout/fragment_about">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_app"
+        android:name="com.uppergain.mark4.ui.about.AboutFragment"
+        android:label="@string/app"
+        tools:layout="@layout/fragment_about">
+    </fragment>
+
 
     <fragment
         android:id="@+id/nav_home"

@@ -16,11 +16,6 @@ import com.uppergain.mark4.R;
 public class BattleFragment extends Fragment {
     private static final String TAG = "BattleFragment";
 
-    //初期処理
-    //ユーザ操作
-    //バックグランド時
-    //アプリキル時
-
     //フラグメントを生成するときに呼び出されるメソッド
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,7 +32,6 @@ public class BattleFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     //ActivityのonResumeメソッド実行後に呼び出され、処理完了後にユーザからのイベントを待ち受ける
@@ -64,7 +58,10 @@ public class BattleFragment extends Fragment {
             @NonNull LayoutInflater inflater,
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_battle, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_battle, container, false);
+
+        return root;
     }
 
     //フラグメントで表示するViewを生成するときに呼び出されるメソッド

@@ -1,38 +1,40 @@
 package com.uppergain.mark4.ui.fragment;
 
-import android.graphics.Color;
+import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.DialogFragment;
 
 import com.uppergain.mark4.R;
 
 
-public class SplashFragment extends Fragment {
+public class SplashFragment extends DialogFragment {
 
-    @Nullable
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater,
-            @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_splash,container,false);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Dialog dialog = getDialog();
+
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        int dialogWidth = (int) (metrics.widthPixels * 0.8);
+        int dialogHeight = (int) (metrics.heightPixels * 0.8);
+
+        lp.width = dialogWidth;
+        lp.height = dialogHeight;
+        dialog.getWindow().setAttributes(lp);
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        /** 省略 **/
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Dialog dialog = new Dialog(getActivity(), R.style.SplashDialogTheme);
+        // ダイアログをキャンセルできないようにする
+        setCancelable(false);
 
-        // ラストに追加
-        // 背景色をセットする
-        view.setBackgroundColor(Color.WHITE);
-        // onCreateで受け取った値をセットする
-        //mTextView.setText(mName);
+        return dialog;
     }
 }
