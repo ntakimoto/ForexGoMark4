@@ -1,8 +1,12 @@
 package com.uppergain.mark4.control;
 
+import com.uppergain.mark4.ForexGoApp;
 import com.uppergain.mark4.framework.io.DataIO;
 import com.uppergain.mark4.framework.io.FileIO;
 import com.uppergain.mark4.framework.io.PrefFile;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserInfo extends DataCrl {
 
@@ -15,11 +19,15 @@ public class UserInfo extends DataCrl {
     }
 
     public void writeUserInfo(){
-
+        Map<String, String> saveData = new HashMap<>();
+        saveData.put("USER_STATUS", "" + "0");
+        saveData.put("REGISTER_DATE", "" + ForexGoApp.getInstance().getDate());
+        saveData.put("USER_SEQ", "" + ForexGoApp.getInstance().getCreatedUUID());
+        fileIO.makeFile("USER_INFO",saveData);
     }
 
     @Override
-    public void setFileIO(FileIO fileIO) {
+    public void setObjectIO(FileIO fileIO) {
         this.fileIO = fileIO;
     }
 
