@@ -263,7 +263,9 @@
                     android:gravity="center_horizontal"
                     android:inputType="number"
                     android:text="0.01"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
 
             </LinearLayout>
 

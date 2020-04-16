@@ -22,6 +22,24 @@ public class BattleFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
+
+        View root = inflater.inflate(R.layout.fragment_battle, container, false);
+
+        return root;
+    }
+
+    //フラグメントで表示するViewを生成するときに呼び出されるメソッド
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+    }
+
     //アクティビティと結びついたときに呼び出されるメソッド
     @Override
     public void onAttach(Context context) {
@@ -52,21 +70,4 @@ public class BattleFragment extends Fragment {
         super.onStop();
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater,
-            @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
-
-        View root = inflater.inflate(R.layout.fragment_battle, container, false);
-
-        return root;
-    }
-
-    //フラグメントで表示するViewを生成するときに呼び出されるメソッド
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-
-    }
 }

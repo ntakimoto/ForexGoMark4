@@ -15,6 +15,17 @@ import com.uppergain.mark4.R;
 
 public class RegisterGoogleFragment extends Fragment {
 
+    public static RegisterGoogleFragment newInstance(String str){
+        // インスタンス生成
+        RegisterGoogleFragment fragment = new RegisterGoogleFragment();
+        // Bundle にパラメータを設定
+        Bundle barg = new Bundle();
+        barg.putString("Message", str);
+        fragment.setArguments(barg);
+
+        return fragment;
+    }
+
     //フラグメントを生成するときに呼び出されるメソッド
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
