@@ -17,7 +17,7 @@ public abstract class DataCrl {
     DataIO dataIO;
     FileIO fileIO;
 
-    public abstract void setFileIO(FileIO fileIO);
+    public abstract void setObjectIO(FileIO fileIO);
     public abstract void setDataIO(DataIO dataIO);
     public abstract String getUserStatus();
     public abstract void updataData(String s);
