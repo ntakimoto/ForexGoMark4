@@ -8,10 +8,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.uppergain.mark4.control.UserInfo;
 import com.uppergain.mark4.framework.State.UserState;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
+import com.uppergain.mark4.ui.fragment.RegisterGoogleFragment;
 
 /**
  * TOP画面Activity<br>
@@ -27,6 +30,7 @@ public class TopActivity extends AppCompatActivity {
     private Button newGame;
     private Button gameStart;
     private GemeStartFacade facade;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,13 @@ public class TopActivity extends AppCompatActivity {
             newGame.setVisibility(View.INVISIBLE);
         }
 
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            // BackStackを設定
+            fragmentTransaction.addToBackStack(null);
+        }
+
         final Intent intent = new Intent(this, MainActivity.class);
         //[NEW GAME］ボタンを押下した場合
         newGame.setOnClickListener(new View.OnClickListener() {
@@ -70,9 +81,10 @@ public class TopActivity extends AppCompatActivity {
                     ForexGoApp.getCommunication().showMsg();
                 } else {
                     Log.d(TAG, "[NEW GAME]: Google登録画面へ遷移する");
-                    startActivity(intent);
-                    finish();
-                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, new RegisterGoogleFragment()).commit();
+                    fragmentTransaction.replace(R.id.fragment, RegisterGoogleFragment.newInstance(""));
+                    fragmentTransaction.commit();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_top, new RegisterGoogleFragment()).commit();
+                    //finish();
                 }
             }
         });
