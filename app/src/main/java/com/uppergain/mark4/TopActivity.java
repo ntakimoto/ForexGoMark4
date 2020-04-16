@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.uppergain.mark4.control.UserInfo;
 import com.uppergain.mark4.framework.State.UserState;
-import com.uppergain.mark4.framework.facade.CheckAction;
 import com.uppergain.mark4.framework.facade.GemeStartFacade;
 
 /**
@@ -28,7 +27,6 @@ public class TopActivity extends AppCompatActivity {
     private Button newGame;
     private Button gameStart;
     private GemeStartFacade facade;
-    private CheckAction checkedAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +47,11 @@ public class TopActivity extends AppCompatActivity {
         String prefData = io.getUserStatus();
         //2_0_1_ボタン表示判定
         if (prefData == null) {//ファイルが存在しない場合
-            new UserState(prefData);
+            io.writeUserInfo();
             Log.d(TAG, "[NEW GAME］ボタンを表示すること[ド新規]");
             gameStart.setVisibility(View.INVISIBLE);
         } else if (prefData.equals("0")) {//会員テータスが0である場合
+            new UserState(prefData);
             Log.d(TAG, "[NEW GAME］ボタンを表示すること[既存]");
             gameStart.setVisibility(View.INVISIBLE);
         } else {//それ以外の場合
