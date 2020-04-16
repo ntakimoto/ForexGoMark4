@@ -18,6 +18,10 @@ public class RegisterGoogleFragmentTest {
 
     Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
+    @Before
+    public void setUp() throws Exception {
+    }
+
     public static class 既存会員がログイン {
 
         @Before
